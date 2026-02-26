@@ -19,37 +19,96 @@ public class Calculator {
 
                 // Ask for first number, ask for operator, ask for second number
                 // Use double to make it possible to use decimals
-                System.out.print("Enter the first number: ");
-                double num1 = reader.nextDouble();
-
                 System.out.print("Enter operator (+, -, *, /): ");
                 String operator = reader.next();
 
-                System.out.print("Enter the second number: ");
-                double num2 = reader.nextDouble();
+                switch (operator) {
 
             // Add switch
-            switch (operator) {
+                /* This is the code i replaced
                 case "+":
                     result = num1 + num2;
                     System.out.println("Result: " + result);
+                    break; */
+
+                // countAdd line asks how many numbers the user wants to add.
+                // Result = 0; - Reset result before starting
+                case "+":
+                    System.out.print("How many numbers do you want to add? ");
+                    int countAdd = reader.nextInt();
+                    result = 0;
+
+                    // += means "Add to what we already have"
+                    // for line is a loop that will comtinue the number of times the user chose
+                    //result += takes the number the user chose, and adds it to the existing sum
+
+                    for (int i = 1; i <= countAdd; i++) {
+                        System.out.print("Enter number " + i + ": ");
+                        result += reader.nextDouble();
+                    }
+                    System.out.println("Total Result: " + result);
                     break;
-                case "-":
+
+                    case "-":
+                        System.out.print("Enter the starting number: ");
+                        result = reader.nextDouble();
+                    System.out.print("How many numbers do you want to subtract from it? ");
+                    int countSub = reader.nextInt();
+
+                    for (int i = 1; i <= countSub; i++) {
+                    System.out.print("Enter number to subtract: ");
+                    result -= reader.nextDouble();
+                    }
+                    System.out.println("Total Result: " + result);
+                    break;
+
+                    // This is the original code for subtraction
+               /* case "-":
                     result = num1 - num2;
                     System.out.println("Result: " + result);
-                    break;
-                case "*":
+                    break; */
+
+                    case "*":
+                        System.out.print("Enter your first number: ");
+                                double m1 = reader.nextDouble();
+                        System.out.print("Enter your second number: ");
+                        double m2 = reader.nextDouble();
+
+                        result = m1 * m2;
+                        System.out.println("Result: " + result);
+                        break;
+
+                    case "/":
+                        System.out.print("Enter your first number: ");
+                        double d1 = reader.nextDouble();
+                        System.out.print("Enter your second number: ");
+                        double d2 = reader.nextDouble();
+
+                        if (d2 != 0) {
+                            result = d1 / d2;
+                            System.out.println("Result: " + result);
+                        } else {
+                            System.out.println("Error: Division by zero is not allowed!");
+
+                        }
+                        break;
+
+                        // Since I changed  to a loop that makes user choose how many numbers they want to add, i updated the code for + and -, will now do the same for * and /
+/* This is the old code
+                    case "*":
                     result = num1 * num2;
                     System.out.println("Result: " + result);
                     break;
-                case "/":
+ */
+               /* Old code
+               case "/":
                     if (num2 != 0) {
                         result = num1 / num2;
                         System.out.println("Result: " + result);
                     } else {
                         System.out.println("Error: Division by zero is not allowed!");
                     }
-                    break;
+                    break; */
 
                     // This message will appear if user uses another operator/sign than +, -, * or /
                 default:
