@@ -6,8 +6,10 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
+        // This works as a switch for the loop
         boolean keepRunning = true;
 
+        // Loop will run as long as 'keepRunning' is true
         while (keepRunning) {
             double result = 0;
 
@@ -15,8 +17,8 @@ public class Calculator {
             try {
                 System.out.println("--- Calculator ---");
 
-                // This is where I will add the math
                 // Ask for first number, ask for operator, ask for second number
+                // Use double to make it possible to use decimals
                 System.out.print("Enter the first number: ");
                 double num1 = reader.nextDouble();
 
@@ -48,6 +50,8 @@ public class Calculator {
                         System.out.println("Error: Division by zero is not allowed!");
                     }
                     break;
+
+                    // This message will appear if user uses another operator/sign than +, -, * or /
                 default:
                     System.out.println("Invalid operator! Please use +, -, * or /.");
             }
@@ -62,10 +66,13 @@ public class Calculator {
             System.out.println("Do you want to end program? (yes/no)");
             String answer = reader.next();
             if (answer.equalsIgnoreCase("yes")) {
+                // Exits loop
                 keepRunning = false;
                 System.out.println("Goodbye!");
             }
             }
+
+        // Closes scanner to save computer resources
         reader.close();
         }
     }
