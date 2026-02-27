@@ -46,20 +46,53 @@ public class CalculatorGUI {
         frame.add(panel);
 
         addButton.addActionListener(e -> {
-                    try {
-                        double num1 = Double.parseDouble(textField1.getText());
+            try {
+                double num1 = Double.parseDouble(textField1.getText());
 
-                        double num2 = Double.parseDouble(textField2.getText());
+                double num2 = Double.parseDouble(textField2.getText());
 
-                        double result = num1 + num2;
+                double result = num1 + num2;
 
-                        JOptionPane.showMessageDialog(frame, "The sum is: " + result);
+                JOptionPane.showMessageDialog(frame, "The sum is: " + result);
 
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(frame, "Please enter a valid number!");
-                    }
-                });
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Please enter a valid number!");
+            }
+        });
 
-            frame.setVisible(true);
-        }
+        subButton.addActionListener(e -> {
+            try {
+                double num1 = Double.parseDouble(textField1.getText());
+                double num2 = Double.parseDouble(textField2.getText());
+                double result = num1 - num2;
+                JOptionPane.showMessageDialog(frame, "Result: " + result);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Error!");
+            }
+        });
+
+        mulButton.addActionListener(e -> {
+            try {
+                double num1 = Double.parseDouble(textField1.getText());
+                double num2 = Double.parseDouble(textField2.getText());
+                double result = num1 * num2;
+                JOptionPane.showMessageDialog(frame, "Result: " + result);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Error!");
+            }
+        });
+
+        divButton.addActionListener(e -> {
+            try {
+                double num1 = Double.parseDouble(textField1.getText());
+                double num2 = Double.parseDouble(textField2.getText());
+                double result = num1 / num2;
+                JOptionPane.showMessageDialog(frame, "Result: " + result);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(frame, "Error!");
+            }
+        });
+
+        frame.setVisible(true);
     }
+}
