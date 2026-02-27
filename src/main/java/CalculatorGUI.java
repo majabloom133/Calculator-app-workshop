@@ -11,7 +11,7 @@ public class CalculatorGUI {
 
         // Create a panel
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setLayout(new GridLayout(5, 2, 10, 10));
 
 
         JLabel label1 = new JLabel("First number: ");
@@ -27,23 +27,18 @@ public class CalculatorGUI {
 
 
         // Add text frame and a button
-        /* JLabel label = new JLabel("Enter your number: ");
-        JTextField textField = new JTextField(10);
-        JButton button = new JButton("Calculate"); */
-
         panel.add(label1);
         panel.add(textField1);
         panel.add(label2);
         panel.add(textField2);
-        // panel.add(button);
         panel.add(addButton);
         panel.add(subButton);
         panel.add(mulButton);
         panel.add(divButton);
 
-
         frame.add(panel);
 
+        // Listeners for buttons
         addButton.addActionListener(e -> {
             try {
                 double num1 = Double.parseDouble(textField1.getText());
@@ -85,13 +80,18 @@ public class CalculatorGUI {
             try {
                 double num1 = Double.parseDouble(textField1.getText());
                 double num2 = Double.parseDouble(textField2.getText());
-                double result = num1 / num2;
-                JOptionPane.showMessageDialog(frame, "Result: " + result);
+                if (num2 == 0) {
+                    JOptionPane.showMessageDialog(frame, "Error: Divide by zero!");
+                } else {
+                    double result = num1 / num2;
+                    JOptionPane.showMessageDialog(frame, "Result: " + result);
+                }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(frame, "Error!");
+                JOptionPane.showMessageDialog(frame, "Invalid input!");
             }
         });
 
-        frame.setVisible(true);
+        // Makes the frame visible
+    frame.setVisible(true);
     }
 }
