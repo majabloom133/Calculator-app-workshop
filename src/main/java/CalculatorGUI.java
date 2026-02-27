@@ -11,9 +11,8 @@ public class CalculatorGUI {
 
         // Create a panel
         JPanel panel = new JPanel();
-        panel.setLayout(new
+        panel.setLayout(new GridLayout(4, 2, 10, 10));
 
-                FlowLayout());
 
         JLabel label1 = new JLabel("First number: ");
         JTextField textField1 = new JTextField(10);
