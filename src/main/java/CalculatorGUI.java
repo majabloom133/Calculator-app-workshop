@@ -21,7 +21,11 @@ public class CalculatorGUI {
         JLabel label2 = new JLabel("Second number: ");
         JTextField textField2 = new JTextField(10);
 
-        JButton button = new JButton("Calculate Sum");
+        JButton addButton = new JButton(" + ");
+        JButton subButton = new JButton(" - ");
+        JButton mulButton = new JButton(" * ");
+        JButton divButton = new JButton(" / ");
+
 
         // Add text frame and a button
         /* JLabel label = new JLabel("Enter your number: ");
@@ -32,11 +36,16 @@ public class CalculatorGUI {
         panel.add(textField1);
         panel.add(label2);
         panel.add(textField2);
-        panel.add(button);
+        // panel.add(button);
+        panel.add(addButton);
+        panel.add(subButton);
+        panel.add(mulButton);
+        panel.add(divButton);
+
 
         frame.add(panel);
 
-        button.addActionListener(e -> {
+        addButton.addActionListener(e -> {
                     try {
                         double num1 = Double.parseDouble(textField1.getText());
 
